@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
+import static utils.RandomTextUtils.getRandomText;
 
 class PetApiTest {
     private PetClient petClient;
@@ -18,12 +19,13 @@ class PetApiTest {
 
     @Test
     void createdPetCanBeFetchedById() {
-        Long petId = petClient.createPetRequest("Rex", "available")
+        String petName = "Rex-" + getRandomText(8);
+        Long petId = petClient.createPetRequest(petName, "available")
                 .when()
                 .post("/pet")
                 .then()
                 .statusCode(200)
-                .body("name", equalTo("Rex"), "status", equalTo("available"))
+                .body("name", equalTo(petName), "status", equalTo("available"))
                 .extract()
                 .path("id");
 
@@ -32,7 +34,7 @@ class PetApiTest {
                 .get("/pet/{petId}")
                 .then()
                 .statusCode(200)
-                .body("name", equalTo("Rex"), "status", equalTo("available"));
+                .body("name", equalTo(petName), "status", equalTo("available"));
     }
 
     @Test
