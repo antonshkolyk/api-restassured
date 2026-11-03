@@ -16,9 +16,10 @@ An API test automation project inspired by the sibling TypeScript API test examp
 
 ```text
 src/test/
-  java/com/example/apitests/
-    AuthApiTest.java              # Login API tests
-    PetApiTest.java               # Petstore create/fetch/schema tests
+  java/
+    tests/
+      AuthApiTest.java            # Login API tests
+      PetApiTest.java             # Petstore create/fetch/schema tests
     clients/
       AuthClient.java             # Login request
       PetClient.java              # Pet create and fetch requests

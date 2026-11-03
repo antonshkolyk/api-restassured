@@ -18,7 +18,7 @@ class PetApiTest {
 
     @Test
     void createdPetCanBeFetchedById() {
-        String petId = petClient.createPetRequest("Rex", "available")
+        Long petId = petClient.createPetRequest("Rex", "available")
                 .when()
                 .post("/pet")
                 .then()
@@ -47,7 +47,7 @@ class PetApiTest {
 
     @Test
     void fetchedSoldPetResponseMatchesPetSchema() {
-        String petId = petClient.createPetRequest("Schema Fetch", "sold")
+        Long petId = petClient.createPetRequest("Schema Fetch", "sold")
                 .when()
                 .post("/pet")
                 .then()

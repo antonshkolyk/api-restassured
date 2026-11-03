@@ -26,7 +26,7 @@ public class PetClient {
                 .body(pet);
     }
 
-    public RequestSpecification getPetRequest(String petId) {
+    public RequestSpecification getPetRequest(Long petId) {
         return with()
                 .log().all()
                 .baseUri(baseUrl)
