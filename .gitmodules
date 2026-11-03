@@ -1,3 +1,0 @@
-[submodule "api-restassured"]
-	path = api-restassured
-	url = https://github.com/antonshkolyk/api-restassured.git
